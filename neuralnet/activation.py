@@ -1,10 +1,12 @@
 import numpy as np
 
-def sigmoid(x, deriv=False):
+def sigmoid(z, deriv=False):
     if (deriv):
-        return (np.multiply(x, 1-x))
+        return np.multiply(z, 1-z)
     else:
-        return (1.0/(1.0 + np.exp(-x)))
+        return 1.0/(1.0 + np.exp(-z))
 
-def relu(x):
-    return np.maximum(0,x)
+def relu(z):
+    return np.maximum(0,z)
+
+# will add more...    
