@@ -15,9 +15,9 @@ class Network(object):
         self.a2 = sigmoid(w2)
         return a2;
 
-    def back_prop(self, x, y):
+    def backprop(self, x, y):
         # function should return a gradient matrix for both dC/dW1 & dC/dW2
-        y_ = feed_forward(x); # to set up variables
+        y_ = self.feed_forward(x); # to set up variables
 
         # compute delta for output layer to use in next backprop
         delta2 = (y_ - y) * sigmoid(self.z2, deriv=True);
@@ -30,4 +30,8 @@ class Network(object):
 
         return dCdW1, dCdW2
 
-        
+    def train(self, x, y, learning_rate, iters):
+        for i in range(0, iters):
+            dCdW1, dCdW2 = self.backprop(x, y);
+            self.w1 -= learning_rate*dCdW1
+            self.w2 -= learning_rate*dCdW2
