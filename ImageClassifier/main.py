@@ -1,11 +1,15 @@
 # from classifier import *
 import cv2
 import io
+import os
 import numpy as np
 from flask import Flask, render_template, request, redirect
+from werkzeug import secure_filename
 
 app = Flask(__name__)
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
+UPLOAD_FOLDER = 'csv/upload'
+app.config['UPLOADS_FOLDER'] = UPLOAD_FOLDER
 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
@@ -21,12 +25,14 @@ def index():
         if photo and allowed_file(photo.filename):
             # load image into memory
             mem = io.BytesIO()
-            photo.save(mem)
-            # convert image into numpy array
-            data = np.fromstring(mem.getvalue(), dtype=np.uint8)
-            img = cv2.imdecode(data, cv2.IMREAD_GRAYSCALE)
-            img = cv2.resize(img, (50, 50)) # resize for our classifier
-            return render_template("index.html", img=img)
+            filename = secure_filename(photo.filename)
+            photo.save(os.path.join("csv/upload", filename))
+            # photo.save(mem)
+            # # convert image into numpy array
+            # data = np.fromstring(mem.getvalue(), dtype=np.uint8)
+            # img = cv2.imdecode(data, cv2.IMREAD_GRAYSCALE)
+            # img = cv2.resize(img, (50, 50)) # resize for our classifier
+            return render_template("index.html", img="img")
     else:
         return render_template("index.html")
 
@@ -34,4 +40,5 @@ if __name__ == '__main__':
     # c = Classifier();
     app.jinja_env.auto_reload = True
     app.config['TEMPLATES_AUTO_RELOAD'] = True
+    print('now')
     app.run()
