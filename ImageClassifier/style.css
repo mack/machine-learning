@@ -3,10 +3,10 @@ body {
 }
 
 form > img {
-  background-color: #e4e0e0;
-  border: 1px solid #e3e3e3;
+  background-color: #e7eaf0;
   width: 200px;
   height: 200px;
+  margin-bottom: 20px;
 }
 
 .container {
@@ -15,4 +15,8 @@ form > img {
   margin: 0 auto;
   margin-top: 20px;
   width: auto;
+}
+
+#submit {
+  
 }
