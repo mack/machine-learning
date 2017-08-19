@@ -1,9 +1,9 @@
 body {
-  background-color: #ebeef4;
+  background-color: white;
 }
 
 form > img {
-  background-color: #e7eaf0;
+  background-color: #f4f7fb;
   width: 200px;
   height: 200px;
   margin-bottom: 20px;
@@ -18,5 +18,5 @@ form > img {
 }
 
 #submit {
-  
+
 }

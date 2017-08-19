@@ -3,12 +3,13 @@
 <head>
   <meta charset='utf-8'>
   <title>Dogs V. Cats</title>
-  <link rel='stylesheet' href='style.css'>
+  <link rel='stylesheet' href={{ url_for('static',filename='styles/style.css') }}>
 </head>
 <body>
   <div class='container'>
     <form action="">
       <img>
+      {{ test }}
       <br>
       <input class='inputfile' type="file" name="pic" accept="image/*">
       <input id='submit' type="submit">
