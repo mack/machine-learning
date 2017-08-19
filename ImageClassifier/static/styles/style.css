@@ -24,6 +24,8 @@ body {
 }
 
 #preview {
+  overflow: hidden;
+  position: relative;
   display: table-cell;
   vertical-align: middle;
   background-color: #f0f0f0;
@@ -35,6 +37,12 @@ body {
 
 form {
   margin-top: 10px;
+}
+
+#upload-photo {
+   opacity: 0;
+   position: absolute;
+   z-index: -1;
 }
 
 .submit {

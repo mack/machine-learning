@@ -4,7 +4,12 @@
   <meta charset='utf-8'>
   <title>Dogs V. Cats</title>
   <link rel='stylesheet' href={{ url_for('static',filename='styles/style.css') }}>
+  <script src={{ url_for('static',filename='js/main.js') }}></script>
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
 </head>
 <body>
   <div class='container'>
@@ -18,11 +23,10 @@
       </div>
       <span>No image uploaded</span>
       {% endif %}
-
-
     </div>
     <form action="/">
-      <div class='submit'>What is this pic?</div>
+      <label for="upload-photo" class='submit'>Browse...</label>
+      <input type="file" name="photo" id="upload-photo" onchange="loadImage()"/>
     </form>
   </div>
 </body>
