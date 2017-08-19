@@ -4,15 +4,25 @@
   <meta charset='utf-8'>
   <title>Dogs V. Cats</title>
   <link rel='stylesheet' href={{ url_for('static',filename='styles/style.css') }}>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
 </head>
 <body>
   <div class='container'>
-    <form action="">
-      <img>
-      {{ test }}
-      <br>
-      <input class='inputfile' type="file" name="pic" accept="image/*">
-      <input id='submit' type="submit">
+    <div id='classifier'>
+      <div id='preview'>
+      {% if img is defined %}
+        <img src={{img}}>
+      </div>
+      <span>I'm <strong>93%</strong> sure this is a dog...</span>
+      {% else %}
+      </div>
+      <span>No image uploaded</span>
+      {% endif %}
+
+
+    </div>
+    <form action="/">
+      <div class='submit'>What is this pic?</div>
     </form>
   </div>
 </body>

@@ -1,12 +1,6 @@
 body {
   background-color: white;
-}
-
-form > img {
-  background-color: #f4f7fb;
-  width: 200px;
-  height: 200px;
-  margin-bottom: 20px;
+  font-family: "Roboto"
 }
 
 .container {
@@ -17,6 +11,43 @@ form > img {
   width: auto;
 }
 
-#submit {
+#classifier {
+  display: table;
+  border-collapse:separate;
+  border-spacing: 15px;
+  margin: 0 auto;
+}
 
+#classifier > span {
+  vertical-align: middle;
+  display: table-cell;
+}
+
+#preview {
+  display: table-cell;
+  vertical-align: middle;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  width: 70px;
+  height: 70px;
+  margin-bottom: 20px;
+}
+
+form {
+  margin-top: 10px;
+}
+
+.submit {
+  cursor: pointer;
+  padding: 10px 20px;
+  width: 180px;
+  border-radius: 5px;
+  color: white;
+  font-weight: 500;
+  background-color: #42D2BE;
+  margin: 0 auto;
+}
+
+.submit:hover {
+  background-color: #47ddc8;
 }
