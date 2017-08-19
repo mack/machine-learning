@@ -1,0 +1,2 @@
+model_checkpoint_path: "/Users/mackenzieboudreau/dev/ml/notebook/dogsvscat:0.001:6conv-improv.model.meta"
+all_model_checkpoint_paths: "/Users/mackenzieboudreau/dev/ml/notebook/dogsvscat:0.001:6conv-improv.model.meta"
