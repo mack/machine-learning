@@ -24,7 +24,7 @@
       <span>No image uploaded</span>
       {% endif %}
     </div>
-    <form action="/">
+    <form action="/" method=post enctype=multipart/form-data>
       <label for="upload-photo" class='submit'>Browse...</label>
       <input type="file" name="photo" id="upload-photo" onchange="loadImage()"/>
     </form>
