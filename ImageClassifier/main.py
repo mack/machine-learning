@@ -22,12 +22,13 @@ def index():
             # load image into memory
             mem = io.BytesIO()
             photo.save(mem)
-            # load image into numpy array
+            # convert image into numpy array
             data = np.fromstring(mem.getvalue(), dtype=np.uint8)
             img = cv2.imdecode(data, cv2.IMREAD_GRAYSCALE)
             img = cv2.resize(img, (50, 50)) # resize for our classifier
-
-    return render_template("index.html", pageType='test2')
+            return render_template("index.html", img=img)
+    else:
+        return render_template("index.html")
 
 if __name__ == '__main__':
     # c = Classifier();

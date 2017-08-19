@@ -4,21 +4,18 @@
   <meta charset='utf-8'>
   <title>Dogs V. Cats</title>
   <link rel='stylesheet' href={{ url_for('static',filename='styles/style.css') }}>
-  <script src={{ url_for('static',filename='js/main.js') }}></script>
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
-  <script
-  src="https://code.jquery.com/jquery-3.2.1.js"
-  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
-  crossorigin="anonymous"></script>
+  <script src={{ url_for('static',filename='js/main.js') }}></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
 </head>
 <body>
   <div class='container'>
     <div id='classifier'>
       <div id='preview'>
       {% if img is defined %}
-        <img src={{img}}>
+        <img src={{ img }}>
       </div>
-      <span>I'm <strong>93%</strong> sure this is a dog...</span>
+      <span>I'm <strong>{{ prediction_val }}%</strong> sure this is a {{ prediction }}...</span>
       {% else %}
       </div>
       <span>No image uploaded</span>

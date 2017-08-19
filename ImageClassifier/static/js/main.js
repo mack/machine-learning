@@ -8,7 +8,7 @@ function loadImage(){
     }
 
     reader.onloadend = function () {
-        src = reader.result;
+        src = reader.result; // send this input with post request then return it
         $('.submit').text("Try another?")
         $('form').submit()
     }
