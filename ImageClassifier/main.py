@@ -1,6 +1,8 @@
-from classifier import *
-from PIL import Image
-from flask import Flask, render_template, request, redirect, url_for
+# from classifier import *
+import cv2
+import io
+import numpy as np
+from flask import Flask, render_template, request, redirect
 
 app = Flask(__name__)
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
@@ -17,9 +19,13 @@ def index():
         if photo.filename == '':
             return redirect(request.url)
         if photo and allowed_file(photo.filename):
-            print('Yay!')
-        else:
-            print('Awh...')
+            # load image into memory
+            mem = io.BytesIO()
+            photo.save(mem)
+            # load image into numpy array
+            data = np.fromstring(mem.getvalue(), dtype=np.uint8)
+            img = cv2.imdecode(data, cv2.IMREAD_GRAYSCALE)
+            img = cv2.resize(img, (50, 50)) # resize for our classifier
 
     return render_template("index.html", pageType='test2')
 
