@@ -15,7 +15,7 @@
       {% if img is defined %}
         <img src={{ img }}>
       </div>
-      <span>I'm <strong>{{ prediction_val }}%</strong> sure this is a {{ prediction }}...</span>
+      <span>I'm {{ prediction_val }}% sure this is a <strong>{{ prediction }}</strong>...</span>
       {% else %}
       </div>
       <span>No image uploaded</span>
@@ -24,7 +24,7 @@
     <form action="/" method=post enctype=multipart/form-data>
       <input type='hidden' name='img_src'>
       <label for="upload-photo" class='submit'>Browse...</label>
-      <input type="file" name="photo" id="upload-photo" onchange="loadImage()"/>
+      <input type="file" name="photo" id="upload-photo" accept=".png,.jpg, .jpeg" onchange="uploadImage()"/>
     </form>
   </div>
 </body>

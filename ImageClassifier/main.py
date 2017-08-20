@@ -29,13 +29,15 @@ def index():
             photo.save(path)
             img = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
             img = cv2.resize(img, (50, 50)) # resize for our classifier
-            return render_template("index.html", img=path)
+            return render_template("index.html", img=path, prediction_val="93.232", prediction="DOG")
+        else:
+            return redirect(request.url)
     else:
         return render_template("index.html")
 
-if __name__ == '__main__':
-    # c = Classifier();
-    app.jinja_env.auto_reload = True
-    app.config['TEMPLATES_AUTO_RELOAD'] = True
-    print('now')
-    app.run()
+# if __name__ == '__main__':
+#     # c = Classifier();
+#     app.jinja_env.auto_reload = True
+#     app.config['TEMPLATES_AUTO_RELOAD'] = True
+#     print('now')
+#     app.run()
