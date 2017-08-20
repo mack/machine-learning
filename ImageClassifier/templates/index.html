@@ -22,6 +22,7 @@
       {% endif %}
     </div>
     <form action="/" method=post enctype=multipart/form-data>
+      <input type='hidden' name='img_src'>
       <label for="upload-photo" class='submit'>Browse...</label>
       <input type="file" name="photo" id="upload-photo" onchange="loadImage()"/>
     </form>

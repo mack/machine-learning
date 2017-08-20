@@ -8,7 +8,7 @@ from werkzeug import secure_filename
 
 app = Flask(__name__)
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
-UPLOAD_FOLDER = 'csv/upload'
+UPLOAD_FOLDER = 'static/img/uploads'
 app.config['UPLOADS_FOLDER'] = UPLOAD_FOLDER
 
 def allowed_file(filename):
@@ -17,22 +17,19 @@ def allowed_file(filename):
 @app.route("/", methods=["POST", "GET"])
 def index():
     if (request.method == "POST"):
+        print(request)
         if 'photo' not in request.files:
             return redirect(request.url)
         photo = request.files['photo']
         if photo.filename == '':
             return redirect(request.url)
         if photo and allowed_file(photo.filename):
-            # load image into memory
-            mem = io.BytesIO()
             filename = secure_filename(photo.filename)
-            photo.save(os.path.join("csv/upload", filename))
-            # photo.save(mem)
-            # # convert image into numpy array
-            # data = np.fromstring(mem.getvalue(), dtype=np.uint8)
-            # img = cv2.imdecode(data, cv2.IMREAD_GRAYSCALE)
-            # img = cv2.resize(img, (50, 50)) # resize for our classifier
-            return render_template("index.html", img="img")
+            path = os.path.join(app.config['UPLOADS_FOLDER'], filename)
+            photo.save(path)
+            img = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
+            img = cv2.resize(img, (50, 50)) # resize for our classifier
+            return render_template("index.html", img=path)
     else:
         return render_template("index.html")
 
