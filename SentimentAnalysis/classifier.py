@@ -7,7 +7,6 @@ class Classifier(object):
         self.n_positive = 0
         self.n_negative = 0
         self.format_data()
-        self.predict("THIS is a test")
 
     def format_data(self):
         data = open("data/data.txt", "r")
@@ -39,8 +38,8 @@ class Classifier(object):
         input_str = input_str.lower()
         input_str = re.sub("[^\w]", " ",  input_str).split()
 
-        positive_val = 0
-        negative_val = 0
+        positive_val = 1
+        negative_val = 1
         for key in self.positive_dict:
             if key in input_str:
                 positive_val *= self.positive_dict[key]
@@ -52,4 +51,4 @@ class Classifier(object):
             else:
                 negative_val *=  (1 - self.negative_dict[key])
 
-        print(negative_val)
+        return {"positive": positive_val, "negative": negative_val}
