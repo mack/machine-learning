@@ -1,21 +1,23 @@
 from classifier import *
-from flask import Flask
+from flask import Flask, render_template, request, redirect
 
 app = Flask(__name__)
 
-@app.route("/")
-def index():
-    print('hi')
-    return "hi"
-def main():
-    classifier = Classifier()
-    result = classifier.predict("this was the best")
-    if result['positive'] > result['negative']:
-        percentage_pos = result['positive'] / (result['positive'] + result['negative'])
-        print("Positive: " + str(percentage_pos) + "%")
-    else:
-        percentage_neg = result['negative'] / (result['positive'] + result['negative'])
-        print("Negative: " + str(percentage_neg) + "%")
+# load classifier
+classifier = Classifier()
 
-if __name__ == "__main__":
-    main()
+@app.route("/", methods=["GET", "POST"])
+def index():
+    if (request.method == "POST"):
+        prediction_str = request.form['s']
+        result = classifier.predict(prediction_str)
+        if result['positive'] > result['negative']:
+            print('pos')
+            percentage_pos = result['positive'] / (result['positive'] + result['negative'])
+            return render_template('index.html', rating='Positive', color='pos', percentage=str(percentage_pos))
+        else:
+            print('neg')
+            percentage_neg = result['negative'] / (result['positive'] + result['negative'])
+            return render_template('index.html', rating='Negative', color='neg', percentage=str(percentage_neg))
+    else:
+        return render_template('index.html')

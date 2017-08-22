@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sentiment Analysis</title>
+  <meta charset='utf-8'>
+  <link rel='stylesheet' href={{ url_for('static', filename='style.css') }}>
+  <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+  <script src={{ url_for('static',filename='main.js') }}></script>
+</head>
+<body>
+  <form action="/" method="POST">
+    <textarea name='s' autofocus></textarea>
+  </form>
+  <div id='submit'>Rate</div>
+  {% if rating is defined %}
+  <div id='rating'>{{rating}}: <strong id='{{color}}'>{{percentage}}%</strong></div>
+  {% endif %}
+</body>
+</html>
