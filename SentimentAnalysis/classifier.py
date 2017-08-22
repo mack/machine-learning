@@ -1,12 +1,12 @@
 import re
+import pickle
 
 class Classifier(object):
     def __init__(self):
-        self.positive_dict = {}
-        self.negative_dict = {}
+        self.positive_dict = self.load_model("positive")
+        self.negative_dict = self.load_model("negative")
         self.n_positive = 0
         self.n_negative = 0
-        self.format_data()
 
     def format_data(self):
         data = open("data/data.txt", "r")
@@ -52,3 +52,11 @@ class Classifier(object):
                 negative_val *=  (1 - self.negative_dict[key])
 
         return {"positive": positive_val, "negative": negative_val}
+
+    def save_model(self, sent_dict, name):
+        with open('data/'+ name + '.pkl', 'wb') as f:
+            pickle.dump(sent_dict, f, pickle.HIGHEST_PROTOCOL)
+
+    def load_model(self, name):
+        with open('data/' + name + '.pkl', 'rb') as f:
+            return pickle.load(f)
