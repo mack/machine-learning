@@ -1,23 +1,19 @@
 # Machine Learning
-I'm trying to learn machine learning, so I'll be posting my projects here as I go.
+I'm a beginner in the world of machine learning. I'll be practicing and experimenting in this repository. I've made it public for others interested in seeing my learning process.
 
 # Contents
 * [Machine Learning Tests](notebook/) - Playing with recommendation systems and image
  classification
- * [Dog V Cat Classifier](ImageClassifier/) - Classifies images of dogs and cats, I used a lot of [Sentdex](https://www.youtube.com/user/sentdex)'s tutorials (sadly)
+ * [Dog V Cat Classifier](ImageClassifier/) - Classifies images of dogs and cats, I used a lot of [Sentdex](https://www.youtube.com/user/sentdex)'s tutorials
  * [Sentiment Analysis](SentimentAnalysis/) - My rough attempt at a naive bayes sentiment classifier from scratch (results are poor)
  * [Improved Sentiment Analysis](ImprovedSentimentAnalysis/) - Followed a tutorial and used libraries. Random tree classifier + word2vec to perform sentiment analysis. Trained on a 25k movie rating dataset.
 
-## Most recent ML Projects
-<p align="center">
-  <img src="http://i.imgur.com/Mh7mwbc.png" alt="Current"/>
-</p>
-<p align="center">
-  <img src="http://i.imgur.com/yW3mvyy.png" alt="Current"/>
-</p>
-<p align="center">
-  <img src="http://i.imgur.com/nVWBHA8.png" alt="Current"/>
-</p>
-<p align="center">
-  <img src="http://i.imgur.com/7rLqrSQ.png" alt="Current"/>
-</p>
+## Places I learn
+* [Siraj Raval's Youtube](https://www.youtube.com/channel/UCWN3xxRkmTPmbKwht9FuE5A)
+* [Python Programming](https://pythonprogramming.net/)
+* [Neural Networks & Deeplearning](http://neuralnetworksanddeeplearning.com/)
+* [Coursera](https://www.coursera.org/learn/neural-networks-deep-learning)
+
+## Books I purchased
+* [Python Machine Learning](https://www.amazon.ca/Python-Machine-Learning-Sebastian-Raschka-ebook/dp/B00YSILNL0)
+* [Deep Learning](http://www.deeplearningbook.org/) (recommended)
