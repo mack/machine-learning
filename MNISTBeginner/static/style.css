@@ -1,0 +1,35 @@
+body {
+  background-color: #f0f0f0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+canvas {
+  background-color: white;
+  border-radius: 5px;
+  width: 150px;
+  height: 150px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 15px;
+}
+
+#clear {
+  cursor: pointer;
+  background-color: #844cb6;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 14px;
+  text-align: center;
+}
+
+.btn_center {
+  margin-top: 25px;
+  display: block;
+  text-align: center;
+}
+
+#clear:hover {
+  background-color: #9a55d6;
+}

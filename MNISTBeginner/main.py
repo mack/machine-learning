@@ -1,9 +1,17 @@
 # logistic regression on mnist instead of a superior deep convolution net
 from tensorflow.examples.tutorials.mnist import input_data
 import tensorflow as tf
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
 
 def run():
-    load_input()
+    mnist = input_data.read_data_sets("data/", one_hot=True)
     # create variables + constants
     x = tf.placeholder(tf.float32, [None, 784])
     # start off with weights and biases at 0
@@ -20,10 +28,7 @@ def run():
     for _ in range(1000):
       batch_xs, batch_ys = mnist.train.next_batch(100)
       sess.run(train_step, feed_dict={x: batch_xs, y_: batch_ys})
-      
-def load_input():
-    # Load and save mnist
-    mnist = input_data.read_data_sets("data/", one_hot=True)
+
 
 if __name__ == '__main__':
     run()
