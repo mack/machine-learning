@@ -30,6 +30,12 @@ canvas {
   text-align: center;
 }
 
+#result {
+  display: block;
+  margin-top: 25px;
+  color: #292828;
+}
+
 #clear:hover {
   background-color: #9a55d6;
 }
