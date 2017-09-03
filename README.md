@@ -8,6 +8,7 @@ I'm a beginner in the world of machine learning. I'll be practicing and experime
  * [Sentiment Analysis](SentimentAnalysis/) - My rough attempt at a naive bayes sentiment classifier from scratch (results are poor)
  * [Improved Sentiment Analysis](ImprovedSentimentAnalysis/) - Followed a tutorial and used libraries. Random tree classifier + word2vec to perform sentiment analysis. Trained on a 25k movie rating dataset.
  * [MNIST Beginner](MNISTBeginner/) - Logistic regression classifier by [tensorflow tutorial](https://www.tensorflow.org/get_started/mnist/beginners)
+ * [Neural Network From Scratch](NN/) - Writing a neural network from scratch in python
 
 ## Places I learn
 * [Siraj Raval's Youtube](https://www.youtube.com/channel/UCWN3xxRkmTPmbKwht9FuE5A)
