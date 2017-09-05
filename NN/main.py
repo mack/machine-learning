@@ -14,7 +14,7 @@ def main():
     blue = np.random.randn(50, 2) - (2 * np.ones((50,2)))
 
     Graph().as_default()
-    # print(_default_graph)
+
     x = placeholder()
     w = Variable([1, 1])
     b = Variable(0)

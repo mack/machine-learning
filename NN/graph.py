@@ -1,3 +1,5 @@
+_default_graph = None
+
 class Graph(object):
 
     def __init__(self):
@@ -6,7 +8,5 @@ class Graph(object):
         self.variables = []
 
     def as_default(self):
-        print('hi')
         global _default_graph
         _default_graph = self
-        print(_default_graph)

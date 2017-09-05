@@ -1,4 +1,4 @@
-from graph import *
+import graph
 
 class placeholder(object):
     """
@@ -9,7 +9,7 @@ class placeholder(object):
     def __init__(self):
         self.consumers = []
         # add to global var _default_graph
-        _default_graph.placeholders.append(self)
+        graph._default_graph.placeholders.append(self)
 
 class Variable(object):
     """
@@ -19,5 +19,4 @@ class Variable(object):
     def __init__(self, init_value = None):
         self.value = init_value
         self.consumers = []
-
-        _default_graph.variables.append(self)
+        graph._default_graph.variables.append(self)
