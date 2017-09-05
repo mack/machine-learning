@@ -1,3 +1,5 @@
+import numpy as np
+
 class Operation(object):
     def __init__(self, input_nodes=[]):
         self.input_nodes = input_nodes

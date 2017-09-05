@@ -1,4 +1,4 @@
-from .operation import Operation
+from .operation import *
 
 class sigmoid(Operation):
         def __init__(self, z):

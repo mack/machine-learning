@@ -18,7 +18,12 @@ def main():
     x = placeholder()
     w = Variable([1, 1])
     b = Variable(0)
-    #
+    p = sigmoid(add(matmul(x, w), b))
+
+    session = Session()
+    print(session.run(p, {
+        x: [3, 2]
+    }))
 
 if __name__ == '__main__':
     main()

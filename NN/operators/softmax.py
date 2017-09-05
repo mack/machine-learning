@@ -1,4 +1,4 @@
-from operation import Operation
+from .operation import *
 
 class softmax(Operation):
     def __init__(self, a):

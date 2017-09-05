@@ -1,4 +1,4 @@
-from operation import Operation
+from .operation import *
 
 class subtract(Operation):
     def __init__(self, x, y):

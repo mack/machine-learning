@@ -1,7 +1,7 @@
 import numpy as np
 from inputs import *
 from graph import *
-from operations import *
+from operators import *
 
 class Session(object):
 
@@ -28,14 +28,14 @@ class Session(object):
 
         return operation.output
 
-    def traverse_postorder(operation):
-        nodes_postorder = []
+def traverse_postorder(operation):
+    nodes_postorder = []
 
-        def recurse(node):
-            if isinstance(node, Operation):
-                for input_node in node.input_nodes:
-                    recurse(input_node)
-            nodes_postorder.append(node)
+    def recurse(node):
+        if isinstance(node, Operation):
+            for input_node in node.input_nodes:
+                recurse(input_node)
+        nodes_postorder.append(node)
 
-        recurse(operation)
-        return nodes_postorder
+    recurse(operation)
+    return nodes_postorder
