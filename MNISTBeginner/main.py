@@ -10,6 +10,6 @@ c = classifier()
 def index():
     if (request.method == "POST"):
         print(request.form['img'])
-        return redirect(request.url)
+        return render_template("index.html", img='2')
     else:
         return render_template("index.html")

@@ -11,11 +11,13 @@
   <script src={{ url_for('static', filename='bitmap.js') }}></script>
 </head>
 <body>
+  <span id='result'>Draw a number...</span>
   <canvas id='drawable'>
   </canvas>
   <div class='btn_center'>
-    <span id='clear'>CLEAR</span>
-    <span id='result'>The result is: <strong>8</strong></span>
+    {% if img is defined %}
+    <span id='result'>... the number is <strong>8</strong></span>
+    {% endif %}
   </div>
 </body>
 </html>

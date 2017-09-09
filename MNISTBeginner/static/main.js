@@ -23,9 +23,10 @@
     // initialize the drawing app
     drawing = new window.app.Drawing();
 
-    $('#clear').click(function() {
-        drawing.reset()
-    })
+    // Removed clear button because post request clears form
+    // $('#clear').click(function() {
+    //     drawing.reset()
+    // })
 
     drawing.onChange = function() {
       map = drawing.mnistIntensities()
