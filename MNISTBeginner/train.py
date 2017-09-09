@@ -1,5 +1,6 @@
 from tensorflow.examples.tutorials.mnist import input_data
 import tensorflow as tf
+import numpy as np
 
 class classifier(object):
 
@@ -31,5 +32,7 @@ class classifier(object):
         self.saver.save(sess, "tmp/model.ckpt")
 
     def predict(self, img):
-        self.sess.run(self.y, feed_dict={x: img})
-        
+        img = np.array(img)
+        img = img.reshape(-1, 784)
+        prediction = self.sess.run(self.y, feed_dict={self.x: img})
+        return np.argmax(prediction)

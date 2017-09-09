@@ -15,8 +15,8 @@
   <canvas id='drawable'>
   </canvas>
   <div class='btn_center'>
-    {% if img is defined %}
-    <span id='result'>... the number is <strong>8</strong></span>
+    {% if predicted_value is defined %}
+    <span id='result'>... the number is <strong>{{ predicted_value }}</strong></span>
     {% endif %}
   </div>
 </body>
