@@ -31,6 +31,43 @@ window.app = {};
       this._registerTouchEvents();
     }
   }
+  
+  Drawing.prototype.mnistIntensities = function() {
+   this._draw();
+   var bmp = new window.app.Bitmap(this._canvas);
+   var center = bmp.centerOfMass();
+   var used = bmp.usedBounds();
+
+   if (used.width > used.height) {
+     used.y -= (used.width - used.height) / 2;
+     used.height = used.width;
+   } else {
+     used.x -= (used.height - used.width) / 2;
+     used.width = used.height;
+   }
+
+   var margin = (SAMPLE_SIZE - SAMPLE_BOUNDING_SIZE) / 2;
+   var offsetX = center.x - (used.x + used.width/2);
+   var offsetY = center.y - (used.y + used.height/2);
+
+   var offsetScaler = SAMPLE_BOUNDING_SIZE / used.width;
+   offsetX *= offsetScaler;
+   offsetY *= offsetScaler;
+
+   var scaled = document.createElement('canvas');
+   scaled.width = SAMPLE_SIZE;
+   scaled.height = SAMPLE_SIZE;
+   var ctx = scaled.getContext('2d');
+   ctx.drawImage(this._canvas, used.x, used.y, used.width, used.height,
+     margin-offsetX, margin-offsetY, SAMPLE_BOUNDING_SIZE,
+     SAMPLE_BOUNDING_SIZE);
+
+   var res = new window.app.Bitmap(scaled).alphaData();
+   for (var i = 0, len = res.length; i < len; ++i) {
+     res[i] /= 255;
+   }
+   return res;
+  };
 
   Drawing.prototype.reset = function() {
     this._drawnPaths = [];

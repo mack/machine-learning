@@ -30,5 +30,6 @@ class classifier(object):
 
         self.saver.save(sess, "tmp/model.ckpt")
 
-    def predict(self):
-        self.sess.run()
+    def predict(self, img):
+        self.sess.run(self.y, feed_dict={x: img})
+        
