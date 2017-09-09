@@ -20,7 +20,18 @@ canvas {
   padding: 15px 20px;
   border-radius: 5px;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 13px;
+  text-align: center;
+}
+
+#predict {
+  cursor: pointer;
+  background-color: #d94545;
+  color: white;
+  padding: 15px 17px;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 13px;
   text-align: center;
 }
 
@@ -35,6 +46,10 @@ canvas {
   display: block;
   margin-top: 25px;
   color: #292828;
+}
+
+#predict:hover {
+  background-color: #e84949;
 }
 
 #clear:hover {
