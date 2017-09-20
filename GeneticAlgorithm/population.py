@@ -1,4 +1,5 @@
 from dna import *
+import random
 
 class Population(object):
     def __init__(self, target, mutation_rate, max_pop):
@@ -17,4 +18,11 @@ class Population(object):
         self.score_total = 0
         for i in range(len(self.population)):
             self.score_total += self.population[i].rate(self.target)
-        self.score_total /= len(self.population)
+        self.score_total
+
+    def produce_offspring(self):
+        print(self.score_total)
+
+
+    def get_random_child(self):
+        passs
