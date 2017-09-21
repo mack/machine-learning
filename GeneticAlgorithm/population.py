@@ -17,17 +17,34 @@ class Population(object):
     def calculate_fitness(self):
         self.score_total = 0
         for i in range(len(self.population)):
+            if (self.population[i].rate(self.target) > 2):
+                print(self.population[i].rate(self.target))
+                print(self.population[i].data)
+                print("what")
             self.score_total += self.population[i].rate(self.target)
-        self.score_total
+        self.normalize()
+        print(self.score_total)
+        return self.score_total
+
+    def normalize(self):
+        for i in range(len(self.population)):
+            self.population[i].score /= self.score_total
 
     def create_offspring(self):
-        print(self.select_random().score)
+        return self.select_random()
 
+    """ select_random()
+    Returns a random element based on its
+    cooresponding score (or probability)
+    Args:
+        N/A
+    Returns:
+        DNA: The randomly selected by weight, element
+    """
     def select_random(self):
-        index = random.randint(0, self.score_total);
-        s_sum = 0;
-        i = 0;
-        while (s_sum < index):
-            s_sum += self.population[i].score
-            i += 1
-        return self.population[max(0, i-1)]
+        r = random.random()
+        upto = 0
+        for i in range(len(self.population)):
+            if upto + self.population[i].score >= r:
+                return self.population[i]
+            upto += self.population[i].score
