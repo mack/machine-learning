@@ -20,9 +20,14 @@ class Population(object):
             self.score_total += self.population[i].rate(self.target)
         self.score_total
 
-    def produce_offspring(self):
-        print(self.score_total)
+    def create_offspring(self):
+        print(self.select_random().score)
 
-
-    def get_random_child(self):
-        passs
+    def select_random(self):
+        index = random.randint(0, self.score_total);
+        s_sum = 0;
+        i = 0;
+        while (s_sum < index):
+            s_sum += self.population[i].score
+            i += 1
+        return self.population[max(0, i-1)]

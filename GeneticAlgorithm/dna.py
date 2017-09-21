@@ -8,9 +8,6 @@ class DNA(object):
         self.data = self.random_by_length()
         self.score = 0
 
-    def __init__(self, parent1, parent2):
-        pass
-
     def random_by_length(self):
         d = []
         for i in range(self.length):
