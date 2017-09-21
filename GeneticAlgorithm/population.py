@@ -16,22 +16,36 @@ class Population(object):
 
     def calculate_fitness(self):
         self.score_total = 0
+        # calculate score total
         for i in range(len(self.population)):
-            if (self.population[i].rate(self.target) > 2):
-                print(self.population[i].rate(self.target))
-                print(self.population[i].data)
-                print("what")
             self.score_total += self.population[i].rate(self.target)
-        self.normalize()
-        print(self.score_total)
+        self.normalize() # normalize each score
         return self.score_total
 
     def normalize(self):
+        # normalization
         for i in range(len(self.population)):
             self.population[i].score /= self.score_total
 
+    def get_best(self):
+        best = self.population[0]
+        for i in range(1, len(self.population)):
+            if (best.score < self.population[i].score):
+                best = self.population[i]
+        return best
+
     def create_offspring(self):
-        return self.select_random()
+        for i in range(len(self.population)):
+            parentA = self.select_random()
+            parentB = self.select_random()
+            child = self.perform_crossover(parentA, parentB)
+            self.population[i] = child
+
+    def perform_crossover(self, parentA, parentB):
+        split_idx = random.randint(1, len(parentA.data) - 1)
+        child = DNA(len(self.target))
+        child.data[:split_idx] = parentA.data[:split_idx]
+        child.data[split_idx:] = parentB.data[split_idx:]
 
     """ select_random()
     Returns a random element based on its

@@ -5,6 +5,7 @@ def main():
     pop = Population("Mack", 0.01, 200)
     pop.calculate_fitness()
     pop.create_offspring()
+    print(pop.get_best())
 
 
 if __name__ == '__main__':
