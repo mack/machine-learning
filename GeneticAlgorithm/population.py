@@ -48,6 +48,11 @@ class Population(object):
         child = DNA(len(self.target))
         child.data[:split_idx] = parentA.data[:split_idx]
         child.data[split_idx:] = parentB.data[split_idx:]
+        # introduce variance
+        for i in range(len(self.target)):
+            if (random.random() < self.mutation_rate):
+                random_char = random.choice(string.ascii_letters)
+                child.data[i] = random_char
         return child
 
     """ select_random()
