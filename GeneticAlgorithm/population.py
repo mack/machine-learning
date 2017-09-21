@@ -35,17 +35,20 @@ class Population(object):
         return best
 
     def create_offspring(self):
+        mating_pool = []
         for i in range(len(self.population)):
             parentA = self.select_random()
             parentB = self.select_random()
             child = self.perform_crossover(parentA, parentB)
-            self.population[i] = child
+            mating_pool.append(child)
+        self.population = mating_pool
 
     def perform_crossover(self, parentA, parentB):
         split_idx = random.randint(1, len(parentA.data) - 1)
         child = DNA(len(self.target))
         child.data[:split_idx] = parentA.data[:split_idx]
         child.data[split_idx:] = parentB.data[split_idx:]
+        return child
 
     """ select_random()
     Returns a random element based on its
