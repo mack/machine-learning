@@ -11,7 +11,7 @@ class DNA(object):
     def random_by_length(self):
         d = []
         for i in range(self.length):
-            random_char = random.choice(string.ascii_letters)
+            random_char = random.choice(string.ascii_letters + " ")
             d.append(random_char)
         return d
 
