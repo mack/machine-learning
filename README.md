@@ -10,6 +10,7 @@ I'm a beginner in the world of machine learning. I'll be practicing and experime
  * [MNIST Beginner](MNISTBeginner/) - Logistic regression classifier by [tensorflow tutorial](https://www.tensorflow.org/get_started/mnist/beginners)
  * [Neural Network Library](NN/) - A Python Neural Network library w/ numpy
  * [Genetic Algorithm](GeneticAlgorithm/) - While genetic algo's fall under the category of AI, I don't have an AI repository, so I'm putting this here. Really basic example for me to grasp concepts
+ * [Recurrent Neural Network](RecurrentNN/) - Creating a RNN with numpy (additionally with docker, which I just started using recently)
 
 ## Places I learn
 * [Siraj Raval's Youtube](https://www.youtube.com/channel/UCWN3xxRkmTPmbKwht9FuE5A)
