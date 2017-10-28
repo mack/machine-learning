@@ -4,6 +4,7 @@ from sklearn.preprocessing import StandardScaler
 import plotly.plotly as py
 import plotly
 from plotly.graph_objs import *
+import plotly.figure_factory as ff
 
 class PCA(object):
     def __init__(self, tensor):
@@ -45,6 +46,9 @@ def main():
     # load in the iris dataset
     dataframe = pd.read_csv('https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data', header=None)
     dataframe.columns=['sepal_len', 'sepal_wid', 'petal_len', 'petal_wid', 'class']
+
+    table = ff.create_table(dataframe[:10])
+    plotly.offline.iplot(table, filename='simple_table')
     X = dataframe.iloc[:,0:4].values
     y = dataframe.iloc[:,4].values
     # _X now has 2 dimensions....
