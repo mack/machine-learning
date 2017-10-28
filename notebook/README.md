@@ -25,5 +25,5 @@ Then after PCA, here is the data plotted in two dimensions.
   <img src="https://i.imgur.com/Z8IuFQV.png" alt="Current"/>
 </p>
 
-####TODO
+### TODO
 I plan on trying to perform classification on the PCA data to compare the results with just classifying the regular matrix.
