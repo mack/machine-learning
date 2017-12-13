@@ -1,4 +1,2 @@
-class RNN(object):
-    def __init__():
-        pass;
-    
+def main():
+    print("Hey there!")
